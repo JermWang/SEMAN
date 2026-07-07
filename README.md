@@ -1,6 +1,6 @@
 # $SEMAN — landing site
 
-A single static site (no build step). Just `index.html`, `styles.css`, `app.js`, and your art in `public/`.
+A single static site (no build step). Just `index.html`, `styles.css`, `app.js`, and your art in `assets/`.
 
 ## 🚀 Go live in 2 minutes (after you launch on pump.fun)
 
@@ -38,6 +38,6 @@ Drag the folder into **Vercel** or **Netlify**, or push to GitHub and enable **P
 
 ## Art
 
-- `public/seman-art.gif` — the green `$SEMAN` logo (hero + footer)
-- `public/seman-PNG.png` — the swimmer (background + progress bar + face accents)
-- `public/scribble-pfp.png` — mission-section portrait
+- `assets/seman-art.gif` — the green `$SEMAN` logo (hero + footer)
+- `assets/seman-PNG.png` — the swimmer (background + progress bar + face accents)
+- `assets/scribble-pfp.png` — mission-section portrait
