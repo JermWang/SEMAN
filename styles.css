@@ -61,8 +61,8 @@ body {
   height: auto;
 }
 @keyframes wiggle {
-  0%, 100% { transform: rotate(-7deg); }
-  50%      { transform: rotate(7deg); }
+  0%, 100% { transform: scaleX(-1) rotate(-7deg); }
+  50%      { transform: scaleX(-1) rotate(7deg); }
 }
 
 /* content sits above ocean */
