@@ -137,7 +137,7 @@ function spawnSwimmers() {
     s.style.setProperty("--wig", (1 + seededRand(i + 7) * 1.4).toFixed(2) + "s");
 
     const img = document.createElement("img");
-    img.src = "public/seman-gif.png";
+    img.src = "public/semangif.gif";
     img.alt = "";
     s.appendChild(img);
     ocean.appendChild(s);
