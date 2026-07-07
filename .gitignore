@@ -11,5 +11,10 @@ Thumbs.db
 .vscode/
 .idea/
 
+# env / secrets (never commit real .env; .env.example is the template)
+.env
+.env.local
+.env.*.local
+
 # local claude tooling
 .claude/launch.json
