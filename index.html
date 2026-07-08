@@ -29,17 +29,19 @@
 
   <!-- ===== Nav ===== -->
   <header class="nav">
-    <a class="nav-brand" href="#top">
-      <img src="assets/seman-PNG.png" alt="SEMAN" class="nav-face" />
-      <span>SEMAN</span>
-    </a>
-    <nav class="nav-links">
-      <a href="#mission">Mission</a>
-      <a href="#tracker">The Fund</a>
-      <a href="#how">How it works</a>
-      <a href="#roadmap">Roadmap</a>
-    </nav>
-    <a class="btn btn-primary nav-buy" href="#" data-link="pump" target="_blank" rel="noopener">Buy $SEMAN</a>
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">
+        <img src="assets/seman-PNG.png" alt="SEMAN" class="nav-face" />
+        <span>SEMAN</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#tracker">The Fund</a>
+        <a href="#how">How it works</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <a class="btn btn-primary nav-buy" href="#" data-link="pump" target="_blank" rel="noopener">Buy $SEMAN</a>
+    </div>
   </header>
 
   <!-- ===== Hero ===== -->
@@ -75,61 +77,64 @@
 
     <!-- ===== LIVE TRACKER ===== -->
     <section class="tracker" id="tracker">
-      <div class="tracker-inner">
-        <div class="tracker-head">
-          <span class="live-dot" id="liveDot"></span>
-          <span class="live-label" id="liveLabel">Connecting to the swim…</span>
-        </div>
-
-        <h2 class="tracker-title">The SEMAN Fund <span>for Kids Crypto Education</span></h2>
-        <p class="tracker-note">
-          Every trade on <b>$SEMAN</b> generates creator fees. 100% of them are pledged to fund
-          crypto &amp; financial-literacy education for children. This counter ticks up live with real trading.
-        </p>
-
-        <!-- Big counter -->
-        <div class="raised">
-          <div class="raised-amount" id="raisedAmount">$0</div>
-          <div class="raised-cap">
-            pledged to the kids &nbsp;•&nbsp; goal <span id="goalLabel">$100,000</span>
+      <div class="tracker-inner" data-reveal>
+        <div class="tracker-caustic" aria-hidden="true"></div>
+        <div class="tracker-content">
+          <div class="tracker-head">
+            <span class="live-dot" id="liveDot"></span>
+            <span class="live-label" id="liveLabel">Connecting to the swim…</span>
           </div>
-          <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="progress-swimmer" id="progressSwimmer">
-              <img src="assets/seman-PNG.png" alt="" />
+
+          <h2 class="tracker-title">The SEMAN Fund <span>for Kids Crypto Education</span></h2>
+          <p class="tracker-note">
+            Every trade on <b>$SEMAN</b> generates creator fees. 100% of them are pledged to fund
+            crypto &amp; financial-literacy education for children. This counter ticks up live with real trading.
+          </p>
+
+          <!-- Big counter -->
+          <div class="raised">
+            <div class="raised-amount" id="raisedAmount">$0</div>
+            <div class="raised-cap">
+              pledged to the kids &nbsp;•&nbsp; goal <span id="goalLabel">$100,000</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" id="progressBar"></div>
+              <div class="progress-swimmer" id="progressSwimmer">
+                <img src="assets/seman-PNG.png" alt="" />
+              </div>
+            </div>
+            <div class="progress-pct" id="progressPct">0% of the way there</div>
+          </div>
+
+          <!-- Live stats grid -->
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-value" id="statMcap">—</div>
+              <div class="stat-label">Market Cap</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="statVol">—</div>
+              <div class="stat-label">24h Volume</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="statPrice">—</div>
+              <div class="stat-label">Price</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="statFeeRate">100%</div>
+              <div class="stat-label">Fees → Kids</div>
             </div>
           </div>
-          <div class="progress-pct" id="progressPct">0% of the way there</div>
-        </div>
 
-        <!-- Live stats grid -->
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-value" id="statMcap">—</div>
-            <div class="stat-label">Market Cap</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="statVol">—</div>
-            <div class="stat-label">24h Volume</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="statPrice">—</div>
-            <div class="stat-label">Price</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="statFeeRate">—</div>
-            <div class="stat-label">Fees → Kids</div>
-          </div>
+          <p class="tracker-src" id="trackerSrc">Source: live on-chain data</p>
         </div>
-
-        <p class="tracker-src" id="trackerSrc">Source: live on-chain data</p>
       </div>
     </section>
 
     <!-- ===== Mission ===== -->
     <section class="section mission" id="mission">
       <div class="section-grid">
-        <div>
+        <div data-reveal>
           <h2 class="section-title">Why are we doing this?</h2>
           <p class="section-text">
             Honestly? It started as a joke. We spelled a legend's name backwards and it looked kind of
@@ -145,7 +150,7 @@
             generation how not to get rugged. That's it. That's the mission.
           </p>
         </div>
-        <div class="mission-art">
+        <div class="mission-art" data-reveal>
           <img src="assets/scribble-pfp.png" alt="Seman swimming" />
         </div>
       </div>
@@ -153,19 +158,19 @@
 
     <!-- ===== How it works ===== -->
     <section class="section how" id="how">
-      <h2 class="section-title center">How the swim works</h2>
+      <h2 class="section-title center" data-reveal>How the swim works</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card" data-reveal>
           <div class="card-num">1</div>
           <h3>You ape in</h3>
           <p>Grab some $SEMAN on pump.fun. Congrats, you're now a philanthropist AND a degenerate. Rare combo.</p>
         </div>
-        <div class="card">
+        <div class="card" data-reveal>
           <div class="card-num">2</div>
           <h3>Fees are generated</h3>
           <p>Every buy and sell throws off creator fees. Little semans everywhere, all swimming with purpose.</p>
         </div>
-        <div class="card">
+        <div class="card" data-reveal>
           <div class="card-num">3</div>
           <h3>The kids get funded</h3>
           <p>100% of those creator fees are pledged to crypto education programs for children. Tracked live above.</p>
@@ -175,24 +180,24 @@
 
     <!-- ===== Roadmap ===== -->
     <section class="section roadmap" id="roadmap">
-      <h2 class="section-title center">The Swimlap™ (roadmap)</h2>
+      <h2 class="section-title center" data-reveal>The Swimlap™ (roadmap)</h2>
       <div class="lanes">
-        <div class="lane">
+        <div class="lane" data-reveal>
           <div class="lane-tag">Lap 1</div>
           <h3>Splash</h3>
           <p>Launch on pump.fun. Get the little guy swimming. Meme relentlessly.</p>
         </div>
-        <div class="lane">
+        <div class="lane" data-reveal>
           <div class="lane-tag">Lap 2</div>
           <h3>Backstroke</h3>
           <p>Hit our first funding goal. Partner with a real crypto-education nonprofit for kids.</p>
         </div>
-        <div class="lane">
+        <div class="lane" data-reveal>
           <div class="lane-tag">Lap 3</div>
           <h3>Butterfly</h3>
           <p>Publish a transparency page showing every dollar that reached the kids. Receipts or it didn't happen.</p>
         </div>
-        <div class="lane">
+        <div class="lane" data-reveal>
           <div class="lane-tag">Lap 4</div>
           <h3>Olympics</h3>
           <p>Ansem notices. Chaos ensues. The children are educated. We win.</p>
@@ -201,11 +206,13 @@
     </section>
 
     <!-- ===== CTA band ===== -->
-    <section class="cta-band">
-      <img src="assets/seman-PNG.png" alt="" class="cta-face" />
-      <h2>Come swim with us.</h2>
-      <p>It's funny, it's dumb, and it's actually helping kids. Don't overthink it.</p>
-      <a class="btn btn-primary btn-lg" href="#" data-link="pump" target="_blank" rel="noopener">Buy $SEMAN</a>
+    <section class="cta-wrap">
+      <div class="cta-band" data-reveal>
+        <img src="assets/seman-PNG.png" alt="" class="cta-face" />
+        <h2>Come swim with us.</h2>
+        <p>It's funny, it's dumb, and it's actually helping kids. Don't overthink it.</p>
+        <a class="btn btn-primary btn-lg" href="#" data-link="pump" target="_blank" rel="noopener">Buy $SEMAN</a>
+      </div>
     </section>
   </main>
 

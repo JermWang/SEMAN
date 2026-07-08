@@ -126,7 +126,7 @@ function spawnSwimmers() {
   const ocean = $("ocean");
   if (!ocean) return;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const count = reduce ? 6 : (window.innerWidth < 640 ? 9 : 16);
+  const count = reduce ? 5 : (window.innerWidth < 640 ? 8 : 15);
 
   for (let i = 0; i < count; i++) {
     const s = document.createElement("div");
@@ -134,7 +134,6 @@ function spawnSwimmers() {
     const size = 40 + Math.floor(Math.pow(seededRand(i), 2) * 120); // 40–160px, biased small
     s.style.width = size + "px";
     s.style.top = (seededRand(i + 100) * 100) + "vh";
-    s.style.setProperty("--wig", (1 + seededRand(i + 7) * 1.4).toFixed(2) + "s");
 
     const img = document.createElement("img");
     img.src = "assets/semangif.gif";
@@ -142,8 +141,56 @@ function spawnSwimmers() {
     s.appendChild(img);
     ocean.appendChild(s);
 
-    animateSwimmer(s, i, size);
+    if (reduce) {
+      s.style.transform = "translate(" + (seededRand(i * 3) * window.innerWidth) + "px, 0)";
+    } else {
+      animateSwimmer(s, i, size);
+    }
   }
+}
+
+/* ---------- reveal on scroll ---------- */
+function setupReveals() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const els = document.querySelectorAll("[data-reveal]");
+  if (reduce || !("IntersectionObserver" in window)) return; // stay visible
+
+  const reveal = (n) => {
+    n.classList.remove("reveal-hidden");
+    n.classList.add("reveal-in");
+  };
+
+  // Only hide elements that start well below the fold.
+  const hidden = [];
+  els.forEach((node) => {
+    const r = node.getBoundingClientRect();
+    if (r.top > window.innerHeight * 0.82) {
+      node.classList.add("reveal-hidden");
+      hidden.push(node);
+    }
+  });
+  if (!hidden.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  hidden.forEach((n) => io.observe(n));
+
+  // Fallback: reveal on scroll in case the observer never fires,
+  // so content can never remain stuck invisible.
+  const onScroll = () => {
+    let remaining = 0;
+    hidden.forEach((n) => {
+      if (!n.classList.contains("reveal-hidden")) return;
+      const r = n.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.92) { io.unobserve(n); reveal(n); }
+      else remaining++;
+    });
+    if (!remaining) window.removeEventListener("scroll", onScroll);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
 // deterministic pseudo-random (no Date/Math.random dependency issues)
@@ -337,6 +384,7 @@ function init() {
   resolveLinks();
   setupContractPill();
   spawnSwimmers();
+  setupReveals();
 
   // seed the counter
   targetRaised = Math.max(loadStoredRaised(), CONFIG.RAISED_BASELINE_USD || 0);

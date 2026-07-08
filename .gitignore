@@ -16,5 +16,8 @@ Thumbs.db
 .env.local
 .env.*.local
 
+# design tool exports (reference only, not part of the deployed site)
+design_enhancements/
+
 # local claude tooling
 .claude/launch.json
